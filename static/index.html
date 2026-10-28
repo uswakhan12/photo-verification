@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo check | Registration</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <div class="eyebrow">REGISTRATION · PHOTO CHECK</div>
+      <h1>Make sure your photo is ready.</h1>
+      <p>Upload a recent passport-style photo. We’ll check it before you continue with registration.</p>
+
+      <div class="rules">
+        <h2>Your photo must</h2>
+        <ul>
+          <li>Show one person, facing straight at the camera</li>
+          <li>Show the full face and both open eyes</li>
+          <li>Have no covering, sunglasses, filter, or editing</li>
+          <li>Be a clear professional portrait—not a selfie</li>
+          <li>Use even light and a plain background</li>
+        </ul>
+        <p class="allowance">Hijab or dupatta is welcome when the entire face is visible. Clear glasses are okay without glare.</p>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="upload-title">
+      <div id="upload-view">
+        <div class="step">STEP 1 OF 1</div>
+        <h2 id="upload-title">Upload your photo</h2>
+        <p class="muted">JPEG, PNG or WebP · up to 8 MB</p>
+
+        <label class="dropzone" id="dropzone">
+          <input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp">
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <strong>Choose a photo</strong>
+          <span>or drag and drop it here</span>
+        </label>
+
+        <div class="privacy">
+          <span aria-hidden="true">◈</span>
+          <p><strong>Privacy:</strong> your image is used only to check these photo rules. Do not store it in application logs.</p>
+        </div>
+      </div>
+
+      <div id="preview-view" hidden>
+        <div class="preview-header">
+          <div>
+            <div class="step">PHOTO SELECTED</div>
+            <h2>Check this photo</h2>
+          </div>
+          <button class="link-button" id="change-button" type="button">Change</button>
+        </div>
+        <div class="preview-frame">
+          <img id="preview" alt="Selected registration photo">
+        </div>
+        <button class="primary" id="check-button" type="button">Check my photo</button>
+      </div>
+
+      <div id="loading-view" class="centered" hidden aria-live="polite">
+        <div class="spinner"></div>
+        <h2>Checking your photo…</h2>
+        <p class="muted">This usually takes a few seconds.</p>
+      </div>
+
+      <div id="result-view" hidden aria-live="polite">
+        <div id="result-banner" class="result-banner">
+          <div id="result-icon" class="result-icon"></div>
+          <div>
+            <div class="step" id="result-kicker"></div>
+            <h2 id="result-title"></h2>
+            <p id="result-summary"></p>
+          </div>
+        </div>
+        <div id="check-list" class="check-list"></div>
+        <p id="result-notes" class="notes" hidden></p>
+        <div class="actions">
+          <button class="secondary" id="retry-button" type="button">Try another photo</button>
+          <button class="primary" id="continue-button" type="button" hidden>Continue registration</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
